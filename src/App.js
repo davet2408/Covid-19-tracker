@@ -4,7 +4,8 @@ import InfoBox from './InfoBox';
 import Map from './Map';
 import Table from './Table';
 import './App.css';
-import { sortData } from './utils'
+import { sortData } from './utils';
+import LineGraph from './LineGraph';
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -81,9 +82,8 @@ function App() {
       </div>
       <Card className="app__right">
         <CardContent>
-          <h3>Live Cases by country</h3>
           <Table countries={tableData} />
-          {/* {Graph} */}
+          <LineGraph />
         </CardContent>
 
       </Card>
