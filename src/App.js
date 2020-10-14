@@ -13,9 +13,9 @@ function App() {
   const [country, setCountry] = useState('worldwide');
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
-  const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
+  const [mapCenter, setMapCenter] = useState({ lat: 51, lng: 9 });
   const [mapCountries, setMapCountries] = useState([])
-  const [mapZoom, setMapZoom] = useState(3);
+  const [mapZoom, setMapZoom] = useState(4);
   const [casesType, setCasesType] = useState('cases');
 
   useEffect(() => {
@@ -35,7 +35,7 @@ function App() {
             {
               name: country.country, // United States, United Kingdom etc
               value: country.countryInfo.iso2 // UK, USA, FR
-            }));
+            })).filter((country) => country.value !== null);
 
           const sortedData = sortData(data);
           setTableData(sortedData);
@@ -116,14 +116,12 @@ function App() {
           center={mapCenter}
           zoom={mapZoom} />
       </div>
-      <Card className="app__right">
+      <Card className='app__right'>
         <CardContent>
-          <div className="app__information">
-            <h3>Live Cases by Country</h3>
-            <Table countries={tableData} />
-            <h3>Worldwide new {casesType}</h3>
-            <LineGraph casesType={casesType} />
-          </div>
+          <h3>Live Cases by Country</h3>
+          <Table countries={tableData} />
+          <h3 className='app__graphTitle'>Worldwide new {casesType}</h3>
+          <LineGraph className='app__graph' casesType={casesType} />
         </CardContent>
 
       </Card>

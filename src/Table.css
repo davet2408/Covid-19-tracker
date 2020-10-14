@@ -1,8 +1,16 @@
 .table {
     margin-top: 20px;
     overflow: scroll;
-    height: 400px;
+    height: 350px;
     color: #6a5d5d;
+}
+
+.innerTable {
+    display: flex;
+}
+
+.tableBody {
+    width: 100%
 }
 
 .table tr {

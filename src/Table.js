@@ -5,8 +5,8 @@ import numeral from 'numeral';
 function Table({ countries }) {
     return (
         <div className="table">
-            <table>
-                <tbody>
+            <table className="innerTable">
+                <tbody className='tableBody'>
                     {countries.map((country) => (
                         <tr key={country.country}>
                             <td>{country.country}</td>

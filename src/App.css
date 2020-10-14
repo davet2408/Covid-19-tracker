@@ -27,10 +27,36 @@ body {
   flex: 0.9;
 }
 
+.app__right {
+  display: flex;
+  flex-direction: column;
+}
+
+.app__information {
+  flex-grow: 1;
+}
+
+.app__right .MuiCardContent-root {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.app__graphTitle {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.app__graph {
+  display: flex;
+  flex-direction: col;
+  flex-grow: 1;
+}
+
 .app__stats {
   display: flex;
   justify-content: space-between;
-}
+} 
 
 
 @media (max-width: 990px) {
