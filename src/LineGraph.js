@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { Line } from 'react-chartjs-2'
+import React, { useState, useEffect } from 'react';
+import { Line } from 'react-chartjs-2';
 import numeral from 'numeral';
+import './colors.css';
 
 const options = {
     legend: {
@@ -26,7 +27,7 @@ const options = {
             {
                 type: "time",
                 time: {
-                    format: "MM/DD/YY",
+                    parser: "MM/DD/YY",
                     tooltipFormat: "ll",
                 },
             },
@@ -66,6 +67,9 @@ const buildChartData = (data, casesType = 'cases') => {
 
 
 function LineGraph({ casesType }) {
+    const style = getComputedStyle(document.body);
+    const chartCol = style.getPropertyValue('--color-' + casesType);
+
     const [data, setData] = useState({});
 
     useEffect(() => {
@@ -86,8 +90,8 @@ function LineGraph({ casesType }) {
                 <Line
                     data={{
                         datasets: [{
-                            backgroundColor: "rgba(204, 16, 52, 0.5)",
-                            borderColor: "#CC1034",
+                            backgroundColor: chartCol + '80',
+                            borderColor: chartCol,
                             data: data
                         }]
                     }}

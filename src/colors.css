@@ -1,5 +1,6 @@
 :root {
-    --color-cases: orange;
-    --color-recovered: green;
-    --color-deaths: red;
+    --color-cases: #ffa500;
+    --color-recovered: #7dd71d;
+    --color-deaths: #ff0000;
+    --color-backup: #fb4443;
 }

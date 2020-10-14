@@ -1,24 +1,21 @@
 import React from 'react';
 import numeral from 'numeral';
 import { Circle, Popup } from 'react-leaflet';
+import './colors.css'
+
+const style = getComputedStyle(document.body);
 
 const casesTypeColors = {
     cases: {
-        hex: "#CC1034",
-        rgb: "rgb(204, 16, 52)",
-        half_op: "rgba(204, 16, 52, 0.5)",
+        hex: style.getPropertyValue('--color-cases'),
         multiplier: 800,
     },
     recovered: {
-        hex: "#7dd71d",
-        rgb: "rgb(125, 215, 29)",
-        half_op: "rgba(125, 215, 29, 0.5)",
+        hex: style.getPropertyValue('--color-recovered'),
         multiplier: 1200,
     },
     deaths: {
-        hex: "#fb4443",
-        rgb: "rgb(251, 68, 67)",
-        half_op: "rgba(251, 68, 67, 0.5)",
+        hex: style.getPropertyValue('--color-deaths'),
         multiplier: 2000,
     },
 };
