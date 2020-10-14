@@ -1,0 +1,5 @@
+:root {
+    --color-cases: orange;
+    --color-recovered: green;
+    --color-deaths: red;
+}
