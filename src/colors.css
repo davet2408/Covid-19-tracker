@@ -2,5 +2,7 @@
     --color-cases: #ffa500;
     --color-recovered: #7dd71d;
     --color-deaths: #ff0000;
-    --color-backup: #fb4443;
+    --color-faded-cases: rgba(255, 165, 0, 0.5);
+    --color-faded-recovered: rgba(125, 215, 29, 0.5);
+    --color-faded-deaths: rgba(255, 0, 0, 0.5);
 }

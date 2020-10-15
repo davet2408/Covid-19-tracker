@@ -68,7 +68,8 @@ const buildChartData = (data, casesType = 'cases') => {
 
 function LineGraph({ casesType, ...props }) {
     const style = getComputedStyle(document.body);
-    const chartCol = style.getPropertyValue('--color-' + casesType);
+    const borderCol = style.getPropertyValue('--color-' + casesType);
+    const backgroundCol = style.getPropertyValue('--color-faded-' + casesType);
 
     const [data, setData] = useState({});
 
@@ -90,8 +91,8 @@ function LineGraph({ casesType, ...props }) {
                 <Line
                     data={{
                         datasets: [{
-                            backgroundColor: chartCol + '80',
-                            borderColor: chartCol,
+                            backgroundColor: backgroundCol,
+                            borderColor: borderCol,
                             data: data
                         }]
                     }}
