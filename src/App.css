@@ -12,6 +12,10 @@ body {
   padding: 20px;
 }
 
+.app__left {
+  flex: 0.9;
+}
+
 .app__dropdown {
   background-color: white;
 }
@@ -23,17 +27,14 @@ body {
   justify-content: space-between;
 }
 
-.app__left {
-  flex: 0.9;
-}
+.app__stats {
+  display: flex;
+  justify-content: space-between;
+} 
 
 .app__right {
   display: flex;
   flex-direction: column;
-}
-
-.app__information {
-  flex-grow: 1;
 }
 
 .app__right .MuiCardContent-root {
@@ -49,14 +50,9 @@ body {
 
 .app__graph {
   display: flex;
-  flex-direction: col;
+  flex-direction: column;
   flex-grow: 1;
 }
-
-.app__stats {
-  display: flex;
-  justify-content: space-between;
-} 
 
 
 @media (max-width: 990px) {

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Card, FormControl, MenuItem, Select, CardContent } from '@material-ui/core';
-import InfoBox from './InfoBox';
-import Map from './Map';
-import Table from './Table';
-import './App.css';
 import { sortData, prettyPrintStat } from './utils';
-import LineGraph from './LineGraph';
+import InfoBox from './componenets/InfoBox';
+import Map from './componenets/Map';
+import Table from './componenets/Table';
+import LineGraph from './componenets/LineGraph';
 import 'leaflet/dist/leaflet.css';
+import './App.css';
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -72,7 +72,7 @@ function App() {
     <div className="app">
       <div className="app__left">
         <div className="app__header">
-          <h1>Covid-19 Tracker</h1>
+          <h1>COVID-19 Tracker</h1>
           <FormControl className="app__dropdown">
             <Select variant="outlined" onChange={onCountryChange} value={country}>
               <MenuItem value="worldwide">Worldwide</MenuItem>
@@ -123,7 +123,6 @@ function App() {
           <h3 className='app__graphTitle'>Worldwide new {casesType}</h3>
           <LineGraph className='app__graph' casesType={casesType} />
         </CardContent>
-
       </Card>
     </div>
   );
