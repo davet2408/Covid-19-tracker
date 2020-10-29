@@ -82,15 +82,17 @@ function App() {
       <div className="app__left">
         <div className="app__header">
           <h1>COVID-19 Tracker</h1>
-          <FormControl className="app__dropdown">
-            <Select variant="outlined" onChange={onCountryChange} value={country}>
-              <MenuItem value="worldwide">Worldwide</MenuItem>
-              {countries.map((country) => (
-                <MenuItem key={country.name} value={country.value}>{country.name}</MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <HelpOutlineIcon onClick={ () => setModalReducer(true)}/>
+          <div className="app__dropdownmodal">
+            <FormControl className="app__dropdown">
+              <Select variant="outlined" onChange={onCountryChange} value={country}>
+                <MenuItem value="worldwide">Worldwide</MenuItem>
+                {countries.map((country) => (
+                  <MenuItem key={country.name} value={country.value}>{country.name}</MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <HelpOutlineIcon className="app__iconmodal" onClick={ () => setModalReducer(true)}/>
+          </div>
         </div>
 
         <div className="app__stats">
