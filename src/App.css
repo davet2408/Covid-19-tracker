@@ -64,3 +64,12 @@ body {
     margin-top: 20px;
   }
 }
+
+.app__dropdownmodal{
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.app__iconmodal {
+  padding: 15px;
+}

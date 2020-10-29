@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Card, FormControl, MenuItem, Select, CardContent } from '@material-ui/core';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import { sortData, prettyPrintStat } from './utils';
 import InfoBox from './componenets/InfoBox';
 import Map from './componenets/Map';
 import Table from './componenets/Table';
 import LineGraph from './componenets/LineGraph';
+import { useModal } from './componenets/Modal';
 import 'leaflet/dist/leaflet.css';
 import './App.css';
 
@@ -17,6 +19,8 @@ function App() {
   const [mapCountries, setMapCountries] = useState([])
   const [mapZoom, setMapZoom] = useState(4);
   const [casesType, setCasesType] = useState('cases');
+  const [modal, setModal] = useState(false);
+  const [Modal, openModal] = useModal();
 
   useEffect(() => {
     fetch('https://disease.sh/v3/covid-19/all')
@@ -68,19 +72,27 @@ function App() {
       });
   };
 
+  const setModalReducer = () => {
+    setModal(true)
+    openModal()
+  }
+
   return (
     <div className="app">
       <div className="app__left">
         <div className="app__header">
           <h1>COVID-19 Tracker</h1>
-          <FormControl className="app__dropdown">
-            <Select variant="outlined" onChange={onCountryChange} value={country}>
-              <MenuItem value="worldwide">Worldwide</MenuItem>
-              {countries.map((country) => (
-                <MenuItem key={country.name} value={country.value}>{country.name}</MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+          <div className="app__dropdownmodal">
+            <FormControl className="app__dropdown">
+              <Select variant="outlined" onChange={onCountryChange} value={country}>
+                <MenuItem value="worldwide">Worldwide</MenuItem>
+                {countries.map((country) => (
+                  <MenuItem key={country.name} value={country.value}>{country.name}</MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <HelpOutlineIcon className="app__iconmodal" onClick={ () => setModalReducer(true)}/>
+          </div>
         </div>
 
         <div className="app__stats">
@@ -124,6 +136,7 @@ function App() {
           <LineGraph className='app__graph' casesType={casesType} />
         </CardContent>
       </Card>
+      {modal && <Modal/>}
     </div>
   );
 }
